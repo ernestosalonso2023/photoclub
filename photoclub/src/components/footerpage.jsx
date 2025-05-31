@@ -6,8 +6,8 @@ const FooterPage=()=> {
       <Container className="text-center">
         <p className="mb-1">© 2025 Ernesto Sarduy. Todos los derechos reservados.</p>
         <p className="mb-0">
-          Contacto: <a href="mailto:ernesto@email.com" className="text-info">ernestosalonso2023@gmail.com</a> |{" "}
-          <a href="https://github.com/ernestosalonso2023" className="text-info" target="_blank" rel="noopener noreferrer">
+          Contacto: <a href="mailto:ernestosalonso2023@gmail.com" className="text-info">correo electrónico</a> |{" "}
+          <a href="www.linkedin.com/in/ernestosarduyalonso" className="text-info" target="_blank" rel="noopener noreferrer">
             LinkedIn
           </a>
         </p>
