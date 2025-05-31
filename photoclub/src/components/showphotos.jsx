@@ -15,7 +15,7 @@ const ShowPhotos = ({ src, size = "4x6" }) => {
   const dim = sizes[size] || sizes["4x6"];
   console.log(src);
   return (
-    <Container style={{display: "flex", justifyContent: "flex-start", marginLeft: "200px"}}>
+    <Container style={{display: "flex", justifyContent: "flex-center"}}>
       <Row>
         <Col>
       <div
