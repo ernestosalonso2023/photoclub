@@ -34,7 +34,23 @@ const HomePage = (props) => {
           <h5>
             Obtén una foto, con tu teléfono, desde la comodidad de la casa.
           </h5>
-          <Button
+         
+        </Col>
+        <Col>
+           <Image
+            src={Fotodoc}
+            fluid
+            rounded
+            width={300}
+            height={500}
+            alt="Foto ejemplo"
+          />
+        </Col>
+         
+      </Row>
+      <Row>
+        <Col>
+        <Button
             variant="dark"
             size="lg"
             onClick={() => {
@@ -45,24 +61,6 @@ const HomePage = (props) => {
           >
             Seleccionar el tipo de foto
           </Button>
-        </Col>
-        <Col>
-          <Image
-            src={ci}
-            fluid
-            rounded
-            width={100}
-            height={200}
-            alt="Foto ejemplo"
-          />
-          <Image
-            src={Fotodoc}
-            fluid
-            rounded
-            width={400}
-            height={600}
-            alt="Foto ejemplo"
-          />
         </Col>
       </Row>
     </Container>
