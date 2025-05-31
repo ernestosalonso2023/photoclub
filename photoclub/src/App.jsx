@@ -1,4 +1,6 @@
-import { useState } from "react";
+import PhotoService from './services/photos' 
+import axios from 'axios';
+import { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/esm/Button";
 import Row from "react-bootstrap/Row";
@@ -79,6 +81,9 @@ const App = () => {
   const [showliccond, setLicCondPage] = useState(false);
   const [showvisacanada, setVisaCanadaPage] = useState(false);
   const [showvisachina, setVisaChinaPage] = useState(false);
+  const [imagenUrl,setImageUrl]=useState(null);
+
+  
 
    return (
     <div>
