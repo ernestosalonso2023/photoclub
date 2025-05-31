@@ -7,6 +7,8 @@ import DniPhoto from "../assets/dni.png";
 import PasEsp from "../assets/pasesp.png";
 import VisaUsa from "../assets/visausa.png";
 import LicCond from "../assets/lic.png";
+import VisaCan from "../assets/visacanada.png";
+import VisaChina from "../assets/visachina.png";
 
 const SelectPhotoPage = (props) => {
   return (
@@ -20,7 +22,7 @@ const SelectPhotoPage = (props) => {
               props.setHomePage(false);
               props.setSelectPhotoPage(false);
               props.setAboutUs(false);
-              props.setContactPage(false);
+           //   props.setContactPage(false);
               props.setPasEspPage(false);
               props.setVisaUsaPage(false);
               props.setLicCondPage(false);
@@ -49,14 +51,15 @@ const SelectPhotoPage = (props) => {
           </Card>
         </Col>
         <Col>
-          <Card style={{ width: "18rem" }} 
-          onClick={() => {
+          <Card
+            style={{ width: "18rem" }}
+            onClick={() => {
               props.setPasEspPage(true);
               props.setDniPhotoPage(false);
               props.setHomePage(false);
               props.setSelectPhotoPage(false);
               props.setAboutUs(false);
-              props.setContactPage(false);
+           //   props.setContactPage(false);
               props.setVisaUsaPage(false);
               props.setLicCondPage(false);
               props.setVisaCanadaPage(false);
@@ -70,9 +73,11 @@ const SelectPhotoPage = (props) => {
             />
             <Card.Body>
               <Card.Title>Foto Pasaporte Español</Card.Title>
-              <div>Reciente, en color, con fondo blanco y uniforme, mostrando el
-                rostro de frente, con expresión neutra(26x32 mm)</div>
-            
+              <div>
+                Reciente, en color, con fondo blanco y uniforme, mostrando el
+                rostro de frente, con expresión neutra(26x32 mm)
+              </div>
+
               <div className="d-flex justify-content-center mt-4">
                 <Button variant="dark" size="lg">
                   Comenzar
@@ -82,18 +87,21 @@ const SelectPhotoPage = (props) => {
           </Card>
         </Col>
         <Col>
-          <Card style={{ width: "18rem" }} onClick={() => {
+          <Card
+            style={{ width: "18rem" }}
+            onClick={() => {
               props.setVisaUsaPage(true);
               props.setPasEspPage(false);
               props.setDniPhotoPage(false);
               props.setHomePage(false);
               props.setSelectPhotoPage(false);
               props.setAboutUs(false);
-              props.setContactPage(false);
+             // props.setContactPage(false);
               props.setLicCondPage(false);
               props.setVisaCanadaPage(false);
               props.setVisaChinaPage(false);
-            }}>
+            }}
+          >
             <Card.Img
               variant="top"
               src={VisaUsa}
@@ -117,7 +125,9 @@ const SelectPhotoPage = (props) => {
       <br></br>
       <Row>
         <Col>
-          <Card style={{ width: "18rem" }} onClick={() => {
+          <Card
+            style={{ width: "18rem" }}
+            onClick={() => {
               props.setLicCondPage(true);
               props.setVisaUsaPage(false);
               props.setPasEspPage(false);
@@ -125,13 +135,86 @@ const SelectPhotoPage = (props) => {
               props.setHomePage(false);
               props.setSelectPhotoPage(false);
               props.setAboutUs(false);
-              props.setContactPage(false);
+             // props.setContactPage(false);
               props.setVisaCanadaPage(false);
               props.setVisaChinaPage(false);
-            }}>
+            }}
+          >
             <Card.Img
               variant="top"
               src={LicCond}
+              style={{ height: "200px", objectFit: "cover" }}
+            />
+            <Card.Body>
+              <Card.Title>Foto Lic de Conducción</Card.Title>
+              <div>
+                Reciente, en color, con fondo blanco y uniforme, mostrando el
+                rostro de frente, con expresión neutra(1x1 pulg)
+              </div>
+              <div className="d-flex justify-content-center mt-2">
+                <Button variant="dark" size="lg">
+                  Comenzar
+                </Button>
+              </div>
+            </Card.Body>
+          </Card>
+        </Col>
+        <Col>
+          <Card
+            style={{ width: "18rem" }}
+            onClick={() => {
+              props.setVisaCanadaPage(true);
+              props.setLicCondPage(false);
+              props.setVisaUsaPage(false);
+              props.setPasEspPage(false);
+              props.setDniPhotoPage(false);
+              props.setHomePage(false);
+              props.setSelectPhotoPage(false);
+              props.setAboutUs(false);
+             // props.setContactPage(false);
+              
+              props.setVisaChinaPage(false);
+            }}
+          >
+            <Card.Img
+              variant="top"
+              src={VisaCan}
+              style={{ height: "200px", objectFit: "cover" }}
+            />
+            <Card.Body>
+              <Card.Title>Foto Visa Canada</Card.Title>
+              <div>
+                Foto para visa canadiense: tamaño 35×45 mm, fondo blanco, rostro
+                centrado (31–36 mm), expresión neutra, sin sombras.
+              </div>
+              <div className="d-flex justify-content-center mt-2">
+                <Button variant="dark" size="lg">
+                  Comenzar
+                </Button>
+              </div>
+            </Card.Body>
+          </Card>
+        </Col>
+        <Col>
+          <Card
+            style={{ width: "18rem" }}
+            onClick={() => {
+               props.setVisaChinaPage(true);
+              props.setLicCondPage(false);
+              props.setVisaUsaPage(false);
+              props.setPasEspPage(false);
+              props.setDniPhotoPage(false);
+              props.setHomePage(false);
+              props.setSelectPhotoPage(false);
+              props.setAboutUs(false);
+              //props.setContactPage(false);
+              props.setVisaCanadaPage(false);
+             
+            }}
+          >
+            <Card.Img
+              variant="top"
+              src={VisaChina}
               style={{ height: "200px", objectFit: "cover" }}
             />
             <Card.Body>

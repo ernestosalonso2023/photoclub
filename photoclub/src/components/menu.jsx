@@ -37,7 +37,7 @@ const MenuAbout = (props) => {
         onClick={() => {
           props.parameter.setAboutUs(true);
           props.parameter.setHomePage(false);
-          props.parameter.setContactPage(false);
+         // props.parameter.setContactPage(false);
           props.parameter.setSelectPhotoPage(false);
           props.parameter.setDniPhotoPage(false);
           props.parameter.setPasEspPage(false);
@@ -50,24 +50,7 @@ const MenuAbout = (props) => {
       >
         Nosotros
       </NavDropdown.Item>
-      <NavDropdown.Item
-        onClick={() => {
-          props.parameter.setContactPage(true);
-          props.parameter.setDniPhotoPage(false);
-          props.parameter.setHomePage(false);
-          props.parameter.setAboutUs(false);
-          props.parameter.setSelectPhotoPage(false);
-          props.parameter.setPasEspPage(false);
-          props.parameter.setVisaUsaPage(false);
-          props.parameter.setLicCondPage(false);
-          props.parameter.setVisaCanadaPage(false);
-          props.parameter.setVisaChinaPage(false);
-
-        }}
-      >
-        {" "}
-        Contacto
-      </NavDropdown.Item>
+     
     </NavDropdown>
   );
 };
@@ -80,7 +63,7 @@ const MenuTypePhoto = (props) => {
           props.parameter.setHomePage(false);
           props.parameter.setSelectPhotoPage(false);
           props.parameter.setAboutUs(false);
-          props.parameter.setContactPage(false);
+          //props.parameter.setContactPage(false);
           props.parameter.setPasEspPage(false);
           props.parameter.setVisaUsaPage(false);
           props.parameter.setLicCondPage(false);
@@ -100,7 +83,7 @@ const MenuTypePhoto = (props) => {
           props.parameter.setHomePage(false);
           props.parameter.setSelectPhotoPage(false);
           props.parameter.setAboutUs(false);
-          props.parameter.setContactPage(false);
+          //props.parameter.setContactPage(false);
           props.parameter.setVisaUsaPage(false);
           props.parameter.setLicCondPage(false);
           props.parameter.setVisaCanadaPage(false);
@@ -119,7 +102,7 @@ const MenuTypePhoto = (props) => {
           props.parameter.setHomePage(false);
           props.parameter.setSelectPhotoPage(false);
           props.parameter.setAboutUs(false);
-          props.parameter.setContactPage(false);
+          //props.parameter.setContactPage(false);
           props.parameter.setLicCondPage(false);
           props.parameter.setVisaCanadaPage(false);
           props.parameter.setVisaChinaPage(false)
@@ -136,7 +119,7 @@ const MenuTypePhoto = (props) => {
           props.parameter.setHomePage(false);
           props.parameter.setSelectPhotoPage(false);
           props.parameter.setAboutUs(false);
-          props.parameter.setContactPage(false);
+          //props.parameter.setContactPage(false);
           props.parameter.setVisaCanadaPage(false);
           props.parameter.setVisaChinaPage(false)
         }}
@@ -153,7 +136,7 @@ const MenuTypePhoto = (props) => {
           props.parameter.setHomePage(false);
           props.parameter.setSelectPhotoPage(false);
           props.parameter.setAboutUs(false);
-          props.parameter.setContactPage(false);
+         // props.parameter.setContactPage(false);
           props.parameter.setVisaChinaPage(false)
         }}
       >
@@ -166,7 +149,7 @@ const MenuTypePhoto = (props) => {
           props.parameter.setHomePage(false);
           props.parameter.setSelectPhotoPage(false);
           props.parameter.setAboutUs(false);
-          props.parameter.setContactPage(false);
+         // props.parameter.setContactPage(false);
           props.parameter.setPasEspPage(false);
           props.parameter.setVisaUsaPage(false);
           props.parameter.setLicCondPage(false);

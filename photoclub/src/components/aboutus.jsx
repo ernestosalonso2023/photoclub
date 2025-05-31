@@ -11,22 +11,23 @@ const AboutUsPage = () => {
         <Card.Body>
           <h5 className="text-muted mb-4">Desarrollador Autónomo</h5>
           <p>
-            Soy desarrollador con experiencia en backend y frontend. Me apasiona
-            crear soluciones prácticas, eficientes y modernas.
+            Desarrollador con experiencia en backend y frontend. Me apasiona
+            crear soluciones prácticas, eficientes y modernas. Las Matemáticas y 
+            la Ciencia de Datos.
           </p>
           <div className="d-flex justify-content-around mt-4">
             <Button
-              variant="primary"
-              href="https://github.com/ernestosalonso2023"
+              variant="dark"
+              href="www.linkedin.com/in/ernestosarduyalonso"
               target="_blank"
             >
               <FaLinkedin className="me-2" />
               LinkedIn
             </Button>
 
-            <Button variant="outline-success" href="tel:+5355555555">
+            <Button variant="outline-success" href="https://wa.me/34667888622">
               <FaPhoneAlt className="me-2" />
-              Llamar
+              Contactar por WhatsApp
             </Button>
           </div>
         </Card.Body>
