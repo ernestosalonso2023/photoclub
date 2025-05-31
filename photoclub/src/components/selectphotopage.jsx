@@ -22,7 +22,7 @@ const SelectPhotoPage = (props) => {
               props.setHomePage(false);
               props.setSelectPhotoPage(false);
               props.setAboutUs(false);
-           //   props.setContactPage(false);
+              //   props.setContactPage(false);
               props.setPasEspPage(false);
               props.setVisaUsaPage(false);
               props.setLicCondPage(false);
@@ -59,7 +59,7 @@ const SelectPhotoPage = (props) => {
               props.setHomePage(false);
               props.setSelectPhotoPage(false);
               props.setAboutUs(false);
-           //   props.setContactPage(false);
+              //   props.setContactPage(false);
               props.setVisaUsaPage(false);
               props.setLicCondPage(false);
               props.setVisaCanadaPage(false);
@@ -96,7 +96,7 @@ const SelectPhotoPage = (props) => {
               props.setHomePage(false);
               props.setSelectPhotoPage(false);
               props.setAboutUs(false);
-             // props.setContactPage(false);
+              // props.setContactPage(false);
               props.setLicCondPage(false);
               props.setVisaCanadaPage(false);
               props.setVisaChinaPage(false);
@@ -135,7 +135,7 @@ const SelectPhotoPage = (props) => {
               props.setHomePage(false);
               props.setSelectPhotoPage(false);
               props.setAboutUs(false);
-             // props.setContactPage(false);
+              // props.setContactPage(false);
               props.setVisaCanadaPage(false);
               props.setVisaChinaPage(false);
             }}
@@ -171,8 +171,8 @@ const SelectPhotoPage = (props) => {
               props.setHomePage(false);
               props.setSelectPhotoPage(false);
               props.setAboutUs(false);
-             // props.setContactPage(false);
-              
+              // props.setContactPage(false);
+
               props.setVisaChinaPage(false);
             }}
           >
@@ -199,7 +199,7 @@ const SelectPhotoPage = (props) => {
           <Card
             style={{ width: "18rem" }}
             onClick={() => {
-               props.setVisaChinaPage(true);
+              props.setVisaChinaPage(true);
               props.setLicCondPage(false);
               props.setVisaUsaPage(false);
               props.setPasEspPage(false);
@@ -209,7 +209,6 @@ const SelectPhotoPage = (props) => {
               props.setAboutUs(false);
               //props.setContactPage(false);
               props.setVisaCanadaPage(false);
-             
             }}
           >
             <Card.Img
@@ -218,10 +217,10 @@ const SelectPhotoPage = (props) => {
               style={{ height: "200px", objectFit: "cover" }}
             />
             <Card.Body>
-              <Card.Title>Foto Lic de Conducción</Card.Title>
+              <Card.Title>Foto para Visa China</Card.Title>
               <div>
-                Reciente, en color, con fondo blanco y uniforme, mostrando el
-                rostro de frente, con expresión neutra(1x1 pulg)
+                Foto visa China: 33×48 mm, fondo blanco, rostro centrado, color,
+                reciente, sin gafas oscuras ni sombras.
               </div>
               <div className="d-flex justify-content-center mt-2">
                 <Button variant="dark" size="lg">
