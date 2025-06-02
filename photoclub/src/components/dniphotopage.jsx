@@ -62,97 +62,136 @@ const p5x7Images = {
   7: p5x7_7,
   8: p5x7_8,
   9: p5x7_9,
-  10:p5x7_10,
-  11:p5x7_11,
-  12:p5x7_12,
+  10: p5x7_10,
+  11: p5x7_11,
+  12: p5x7_12,
 };
 
-const FormDni = ({ filename, setPhotos,fname,setFname,selectedOption,setSelectedOption}) => {
+const FormDni = ({
+  filename,
+  setPhotos,
+  fname,
+  setFname,
+  selectedOption,
+  setSelectedOption,
+}) => {
   const [count, setCount] = useState(1);
   const [imagenUrl, setImageUrl] = useState(null);
   //const [selectedOption, setSelectedOption] = useState("4x6");
   const [modalShow, setModalShow] = useState(false);
+  const [modalTitle, setModalTitle] = useState("Procesando su Imagen");
+  const [modalBody, setModalBody] = useState(
+    "Estamos procesando tu imagen, por favor espera..."
+  );
+  const [spinner, setModalSpinner] = useState(true);
 
-  const HandleChangeSelect=(event)=> {
-   setSelectedOption(event.target.value);
-  // console.log(event.target.value)
-  }
+  const HandleChangeSelect = (event) => {
+    setSelectedOption(event.target.value);
+    // console.log(event.target.value)
+  };
 
   const HandleChangeCount = (event) => {
     setCount(event.target.value);
   };
   const HandleBeginButton = () => {
+    setModalTitle("Procesando su Imagen");
+    setModalBody("Estamos procesando tu imagen, por favor espera...");
+    setModalSpinner(true);
     setModalShow(true);
-    PhotoService.getPhotos(filename, "esp@dni",selectedOption, count).then(
+    PhotoService.getPhotos(filename, "esp@dni", selectedOption, count).then(
       (response) => {
-        const url = URL.createObjectURL(response.data); // 👈 Convertir blob en URL
-        setImageUrl(url);
-        setPhotos(true);
-        setFname(url);
+        if (response.data.type !== "text/html") {
+          const url = URL.createObjectURL(response.data); // 👈 Convertir blob en URL
+          setImageUrl(url);
+          setPhotos(true);
+          setFname(url);
+        } else {
+          setModalShow(false);
+          response.data.text().then((text) => {
+            setModalTitle("Error al procesar la imagen");
+            setModalBody(text);
+            setModalSpinner(false);
+            setModalShow(true);
+            // alert( text);
+          });
+        }
       }
     );
   };
   return (
     <div style={{ textAlign: "center" }}>
-    { !modalShow && <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-        <Row xs="auto" className="justify-content-center">
-          <Col>
-            <Image
-              src={selectedOption==="4x6"?(p4x6Images[count] || p4x6_1):(p5x7Images[count] || p5x7_1)}
-              style={{ height: "200px", objectFit: "cover" }}
-            ></Image>
-            {imagenUrl && ( 
-               <Image
-                src={imagenUrl}
+      {!modalShow && (
+        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+          <Row xs="auto" className="justify-content-center">
+            <Col>
+              <Image
+                src={
+                  selectedOption === "4x6"
+                    ? p4x6Images[count] || p4x6_1
+                    : p5x7Images[count] || p5x7_1
+                }
                 style={{ height: "200px", objectFit: "cover" }}
               ></Image>
-            )}
-          </Col>
-        </Row>
-        <Row xs="auto" className="justify-content-center">
-          <Col>
-            <div style={{ style: "text-align:start" }}>Cantidad de fotos</div>
-            <input
-              value={count}
-              type="number"
-              min="1"
-              max="12"
-              step="1"
-              style={{ width: "60px" }}
-              onChange={HandleChangeCount}
-            />
-          </Col>
-          <Col>
-            <div style={{ style: "text-align:start" }}>Tipo plantilla</div>
-            <Form.Select size="sm" onChange={HandleChangeSelect} value={selectedOption}>
-              <option>4x6</option>
-              <option>5x7</option>
-            </Form.Select>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <br></br>
-            <div className="d-flex justify-content-around mt-2">
-              <Button
-                variant="dark"
-                onClick={HandleBeginButton}
-                style={{ width: "400px", height: "80px" }}
-              > <h4>Comenzar</h4>
-              </Button>
-            </div>
-          </Col>
-        </Row>
-      </Form.Group> }
+              {imagenUrl && (
+                <Image
+                  src={imagenUrl}
+                  style={{ height: "200px", objectFit: "cover" }}
+                ></Image>
+              )}
+            </Col>
+          </Row>
+          <Row xs="auto" className="justify-content-center">
+            <Col>
+              <div style={{ style: "text-align:start" }}>Cantidad de fotos</div>
+              <input
+                value={count}
+                type="number"
+                min="1"
+                max="12"
+                step="1"
+                style={{ width: "60px" }}
+                onChange={HandleChangeCount}
+              />
+            </Col>
+            <Col>
+              <div style={{ style: "text-align:start" }}>Tipo plantilla</div>
+              <Form.Select
+                size="sm"
+                onChange={HandleChangeSelect}
+                value={selectedOption}
+              >
+                <option>4x6</option>
+                <option>5x7</option>
+              </Form.Select>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <br></br>
+              <div className="d-flex justify-content-around mt-2">
+                <Button
+                  variant="dark"
+                  onClick={HandleBeginButton}
+                  style={{ width: "400px", height: "80px" }}
+                >
+                  {" "}
+                  <h4>Comenzar</h4>
+                </Button>
+              </div>
+            </Col>
+          </Row>
+        </Form.Group>
+      )}
       {modalShow && (
         <ModalInfoProcess
           show={modalShow}
           onHide={() => setModalShow(false)}
-          title="Procesando su Imagen"
-          body="Estamos procesando tu imagen, por favor espera..."
+          title={modalTitle}
+          body={modalBody}
+          spinner={spinner}
         />
       )}
-     </div>
+    </div>
   );
 };
 
@@ -162,6 +201,9 @@ const DniPhotoPage = () => {
   const [fname, setFname] = useState(null); // Url del fichero imagen ya transformado
   const [showphotos, setPhotos] = useState(false);
   const [modalShow, setModalShow] = useState(false);
+  const [modalTitle, setModalTitle] = useState("Subiendo su Imagen");
+  const [modalBody, setModalBody] = useState("Cargando Imagen al servidor.. favor espere");
+  const [spinner, setModalSpinner] = useState(true);
   const [selectedOption, setSelectedOption] = useState("4x6");
 
   const handleImageChange = (event) => {
@@ -173,10 +215,12 @@ const DniPhotoPage = () => {
       setImage(imageUrl);
       try {
         setModalShow(true);
+        setTimeout(() => {
+          console.log("Timeout for 5 seconds");
+        }, 5000);
         PhotoService.uploadPhoto(formData).then((response) => {
           setFileName(response.data);
-          setModalShow(false);
-          //console.log(response.data);
+          setModalShow(true);
         });
       } catch (error) {
         console.log("Bad request", error);
@@ -243,13 +287,17 @@ const DniPhotoPage = () => {
           </Card>
         </Container>
       )}
-      {showphotos && <ShowPhotos src={fname} size={selectedOption}></ShowPhotos>}
+      {showphotos && (
+        <ShowPhotos src={fname} size={selectedOption}></ShowPhotos>
+      )}
+      {console.log(modalShow)}
       {modalShow && (
         <ModalInfoProcess
           show={modalShow}
           onHide={() => setModalShow(false)}
-          title="Subiendo Imagen"
-          body="Cargando su imagen al servidor, por favor espera..."
+          title={modalTitle}
+          body={modalBody}
+          spinner={spinner}
           style={{ textAlign: "center" }}
         />
       )}

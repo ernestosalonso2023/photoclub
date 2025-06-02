@@ -6,7 +6,6 @@ import { FaExclamationCircle } from "react-icons/fa"
 const modalInfoProcess = (props) => { // ventana modal que informa al usuario que se está procesando su imagen
   return (
     <Modal
-      {...props}
       size="xs"
       aria-labelledby="contained-modal-title-vcenter"
       centered
@@ -20,7 +19,7 @@ const modalInfoProcess = (props) => { // ventana modal que informa al usuario qu
         <div className="d-flex justify-content-center">
          {props.body}
           <br />
-           <Spinner animation="border" variant="dark" />
+          { props.spinner && <Spinner animation="border" variant="dark" />}
         </div>
       </Modal.Body>
     </Modal>

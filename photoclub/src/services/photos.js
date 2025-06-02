@@ -1,6 +1,6 @@
 import axios from 'axios';
-//const baseUrl = 'http://127.0.0.1:5000/api'
-const baseUrl = 'https://364d37ce-d5c0-4a1a-abba-20d8ec65c07e-00-bd0cuh513n7e.picard.replit.dev/api'
+const baseUrl = 'http://127.0.0.1:5000/api'
+//const baseUrl = 'https://364d37ce-d5c0-4a1a-abba-20d8ec65c07e-00-bd0cuh513n7e.picard.replit.dev/api'
 const getHello = () => {
   return axios.get(baseUrl)
 }
